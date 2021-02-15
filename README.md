@@ -2,6 +2,8 @@
 
 Send mail via Mailgun SDK in CakePHP 3.0
 
+## Credits
+Based on the project: https://github.com/motsmanish/cakephp-mailgun
 ## Requirements
 
 * PHP 5.4+
