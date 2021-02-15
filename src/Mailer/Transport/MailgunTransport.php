@@ -49,8 +49,8 @@ class MailgunTransport extends AbstractTransport
 	 */
 	public function send(Email $email)
 	{
-		$config = $email->profile();
-		$email->domain($config['mailgun_domain']);
+		$config = $email->getProfile();
+		$email->setDomain($config['mailgun_domain']);
 
 		$emailHeaders = ['from', 'sender', 'replyTo', 'readReceipt', 'returnPath', 'to', 'cc', 'bcc', 'subject', '_headers'];
 		//'_headers' will include all extra tags that may be related to mailgun fields with prefix 'o:' or custom data with prefix 'v:'
@@ -71,7 +71,7 @@ class MailgunTransport extends AbstractTransport
 		$params['text'] = $email->message(Email::MESSAGE_TEXT);
 
 		$attachments = array();
-		foreach ($email->attachments() as $name => $file) {
+		foreach ($email->setAttachments() as $name => $file) {
 			$attachments['attachment'][] = ['filePath' => '@' . $file['file'], 'remoteName' => $name];
 		}
 
