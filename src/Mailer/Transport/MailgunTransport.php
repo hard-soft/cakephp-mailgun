@@ -71,7 +71,7 @@ class MailgunTransport extends AbstractTransport
 		$params['text'] = $email->message(Email::MESSAGE_TEXT);
 
 		$attachments = array();
-		foreach ($email->setAttachments() as $name => $file) {
+		foreach ($email->getAttachments() as $name => $file) {
 			$attachments['attachment'][] = ['filePath' => '@' . $file['file'], 'remoteName' => $name];
 		}
 
