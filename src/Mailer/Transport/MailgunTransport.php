@@ -97,7 +97,7 @@ class MailgunTransport extends AbstractTransport
 			if (isset($config['mailgun_postbin_id']) && !empty($config['mailgun_postbin_id'])) {
 				$mailgun = new Mailgun\Mailgun($config['mailgun_api_key'], 'bin.mailgun.net', $config['mailgun_postbin_id'], false);
 			} else {
-				if (!emtpy($config['mailgun_api_endpoint'])) {
+				if (!empty($config['mailgun_api_endpoint'])) {
 					$mailgun = new Mailgun\Mailgun($config['mailgun_api_key'], $config['mailgun_api_endpoint']);
 				} else {
 					$mailgun = new Mailgun\Mailgun($config['mailgun_api_key']);
